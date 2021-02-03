@@ -16,14 +16,24 @@ namespace ConsoleAppProject.App01
         private double feet;
 
         /// <summary>
-        /// This class will run the program and call
-        /// on the three methods below.
+        /// This method will input the distance measured in miles
+        /// calculate the same distance in feet, and output the 
+        /// distance in feet.
         /// </summary>
         public void Run()
         {
+            OutputHeading();
             InputMiles();
             CalculateFeet();
             OutputFeet();
+        }
+
+        private void OutputHeading()
+        {
+            Console.WriteLine("\n-------------------------------");
+            Console.WriteLine("\n     Convert Miles to Feet     ");
+            Console.WriteLine("\n       by Kayley Syrett        ");
+            Console.WriteLine("\n-------------------------------\n");
         }
 
         /// <summary>
@@ -44,7 +54,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private void CalculateFeet()
         {
-
+            feet = miles * 5280;
         }
 
         /// <summary>
@@ -53,7 +63,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private void OutputFeet()
         {
-
+            Console.WriteLine(miles + " miles is " + feet + " feet!");
         }
     }
 
