@@ -1,4 +1,7 @@
-﻿namespace ConsoleAppProject.App01
+﻿
+using System;
+
+namespace ConsoleAppProject.App01
 {
     /// <summary>
     /// This app converts the distance 
@@ -13,20 +16,25 @@
         private double feet;
 
         /// <summary>
-        /// This class will run the program
+        /// This class will run the program and call
+        /// on the three methods below.
         /// </summary>
         public void Run()
         {
-
+            InputMiles();
+            CalculateFeet();
+            OutputFeet();
         }
 
         /// <summary>
         /// Prompt the user to enter the distance
-        /// Input the miles as a double number 
+        /// Input the miles as a double number.
         /// </summary>
         private void InputMiles()
         {
-
+            Console.Write("Please enter the number of miles > ");
+            String value = Console.ReadLine();
+            miles = Convert.ToDouble(value);
         }
 
         /// <summary>
@@ -41,7 +49,7 @@
 
         /// <summary>
         /// This class will send the output to the screen
-        /// in feet 
+        /// in feet.
         /// </summary>
         private void OutputFeet()
         {
