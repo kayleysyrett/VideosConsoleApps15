@@ -76,6 +76,8 @@ namespace ConsoleAppProject.App01
 
         private void CalculateDistance()
         {
+            //convert distance from miles to feet 
+            //
             if(fromUnit == MILES && toUnit == FEET)
             {
                 toDistance = fromDistance * FEET_IN_MILES;
@@ -84,6 +86,21 @@ namespace ConsoleAppProject.App01
             {
                 toDistance = fromDistance / FEET_IN_MILES;
             }
+
+            //convert distance from metres to feet 
+            //
+            if (fromUnit == METRES && toUnit == FEET)
+            {
+                toDistance = fromDistance * FEET_IN_METRES;
+            }
+            else if (fromUnit == FEET && toUnit == METRES)
+            {
+                toDistance = fromDistance / FEET_IN_METRES;
+            }
+
+
+            //convert distance from miles to metres
+            //
             if (fromUnit == MILES && toUnit == METRES)
             {
                 toDistance = fromDistance * METRES_IN_MILES;
@@ -91,6 +108,17 @@ namespace ConsoleAppProject.App01
             else if (fromUnit == METRES && toUnit == MILES)
             {
                 toDistance = fromDistance / MILES_IN_METRES;
+            }
+
+            //convert distance from metres to miles
+            //
+            if (fromUnit == METRES && toUnit == MILES)
+            {
+                toDistance = fromDistance * MILES_IN_METRES;
+            }
+            else if (fromUnit == MILES && toUnit == METRES)
+            {
+                toDistance = fromDistance / METRES_IN_MILES;
             }
 
         }
