@@ -98,6 +98,16 @@ namespace ConsoleAppProject.App01
                 toDistance = fromDistance / FEET_IN_METRES;
             }
 
+            //convert distance from feet to metres 
+            //
+            if (fromUnit == FEET && toUnit == METRES)
+            {
+                toDistance = fromDistance * FEET_IN_METRES;
+            }
+            else if (fromUnit == METRES && toUnit == FEET)
+            {
+                toDistance = fromDistance / FEET_IN_METRES;
+            }
 
             //convert distance from miles to metres
             //
