@@ -163,8 +163,11 @@ namespace ConsoleAppProject.App01
             {
                 return MILES;
             }
-
-            return null;
+            else
+            {
+                Console.WriteLine("You have not selected a valid option");
+                return null;
+            }
         }
 
         private static string DisplayChoices(string prompt)
