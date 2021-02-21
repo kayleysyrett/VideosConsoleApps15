@@ -21,13 +21,13 @@ namespace ConsoleAppProject
             Console.WriteLine("BNU CO453 Applications Programming 2020-2021!");
             Console.WriteLine();
 
-            BMIConverter calculator = new BMIConverter();
-            calculator.Run();
+            //BMIConverter calculator = new BMIConverter();
+            //calculator.Run();
 
 
-           // DistanceConverter converter = new DistanceConverter();
+           DistanceConverter converter = new DistanceConverter();
 
-           // converter.ConvertDistance();
+           converter.ConvertDistance();
         }
     }
 }
