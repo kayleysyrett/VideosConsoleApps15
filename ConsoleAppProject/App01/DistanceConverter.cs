@@ -20,10 +20,9 @@ namespace ConsoleAppProject.App01
         public const int FEET_IN_MILES = 5280;
 
         public const double METRES_IN_MILES = 1609.34;
-
         public const double FEET_IN_METRES = 3.28084;
 
-        public const double MILES_IN_METRES = 0.000621; 
+        //public const double MILES_IN_METRES = 0.000621; 
 
         // Distance Unit Names 
 
@@ -98,39 +97,17 @@ namespace ConsoleAppProject.App01
                 toDistance = fromDistance / FEET_IN_METRES;
             }
 
-            //convert distance from feet to metres 
-            //
-            if (fromUnit == FEET && toUnit == METRES)
-            {
-                toDistance = fromDistance * FEET_IN_METRES;
-            }
-            else if (fromUnit == METRES && toUnit == FEET)
-            {
-                toDistance = fromDistance / FEET_IN_METRES;
-            }
-
             //convert distance from miles to metres
             //
             if (fromUnit == MILES && toUnit == METRES)
             {
                 toDistance = fromDistance * METRES_IN_MILES;
             }
+            //Convert Metres to Miles
             else if (fromUnit == METRES && toUnit == MILES)
             {
-                toDistance = fromDistance / MILES_IN_METRES;
-            }
-
-            //convert distance from metres to miles
-            //
-            if (fromUnit == METRES && toUnit == MILES)
-            {
-                toDistance = fromDistance * MILES_IN_METRES;
-            }
-            else if (fromUnit == MILES && toUnit == METRES)
-            {
                 toDistance = fromDistance / METRES_IN_MILES;
-            }
-
+            }  
         }
 
         /// <summary>

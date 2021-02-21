@@ -26,6 +26,19 @@ namespace ConsoleAppProject.App02
         public const string METRIC = "metric";
         public const string IMPERIAL = "imperial";
 
+        public void Run()
+        {
+            SelectUnit("Please enter your choice ");
+        }
+        private string SelectUnit(string prompt)
+        {
+            string choice = DisplayChoices(prompt);
+
+            string unit = ExecuteChoice(choice);
+            Console.WriteLine($"\n You have chosen {unit}");
+            return unit;
+        }
+
         public BMIConverter()
         {
 
@@ -50,18 +63,7 @@ namespace ConsoleAppProject.App02
             return choice;
         }
 
-        public void Run()
-        {
-            SelectUnit("Please enter your choice ");
-        }
-        private string SelectUnit(string prompt)
-        {
-            string choice = DisplayChoices(prompt);
-
-            string unit = ExecuteChoice(choice);
-            Console.WriteLine($"\n You have chosen {unit}");
-            return unit;
-        }
+       
         private string ExecuteChoice(string choice)
         {
             if (choice == "1")
