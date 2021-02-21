@@ -165,7 +165,10 @@ namespace ConsoleAppProject.App01
             }
             else
             {
+                Console.WriteLine("                                    ");
+                Console.WriteLine("       ***ERROR MESSAGE***          ");
                 Console.WriteLine("You have not selected a valid option");
+                Console.WriteLine("        Please try again...         ");
                 return null;
             }
         }

@@ -79,18 +79,11 @@ namespace ConsoleAppProject.App02
             }
         }
 
-        private void OutputBodyMassIndex()
-        {
-            Console.WriteLine("Your BMI status is : ");
-            //if statement required 
-        }
-
         private void CalculateBodyMassIndexImperial()
         {
             Console.WriteLine("Please enter your height in feet : ");
             Console.WriteLine("Please enter your height in inches : ");
             double height = Convert.ToDouble(Console.ReadLine()); // ask derek if correct/ok (two commands on one line?)
-
         }
 
         private void CalculateBodyMassIndexMetric()
@@ -100,6 +93,11 @@ namespace ConsoleAppProject.App02
 
             Console.WriteLine("Please enter your weight in kg : ");
             double weight = Convert.ToDouble(Console.ReadLine());
+        }
+        private void OutputBodyMassIndex()
+        {
+            Console.WriteLine("Your BMI status is : ");
+            //if statement required 
         }
     }
 }
