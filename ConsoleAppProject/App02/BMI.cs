@@ -26,6 +26,10 @@ namespace ConsoleAppProject.App02
         public const string METRIC = "metric";
         public const string IMPERIAL = "imperial";
 
+        public BMIConverter()
+        {
+
+        }
         private void OutputHeading()
         {
             Console.WriteLine("\n-------------------------------");
@@ -85,7 +89,7 @@ namespace ConsoleAppProject.App02
         {
             Console.WriteLine("Please enter your height in feet : ");
             Console.WriteLine("Please enter your height in inches : ");
-            double height = Convert.ToDouble(Console.ReadLine());
+            double height = Convert.ToDouble(Console.ReadLine()); // ask derek if correct/ok (two commands on one line?)
 
         }
 
