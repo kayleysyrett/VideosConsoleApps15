@@ -61,7 +61,7 @@ namespace ConsoleAppProject.App02
             OutputBmi();
             CalculateWho();
             OutputWho();
-            //OutputWarning();
+            OutputRisk();
         }
         private void Heading()
         {
@@ -184,6 +184,8 @@ namespace ConsoleAppProject.App02
 
         public void CalculateWho()
         {
+            Console.WriteLine("\n-----------------------------------------------------");
+            Console.WriteLine("\n                                                     ");
             if (Index < 18.5)
             {
                 who = "You are Underweight";
@@ -213,6 +215,23 @@ namespace ConsoleAppProject.App02
         public void OutputWho()
         {
             Console.WriteLine("Your current WHO (World Health Organisation) weight status is as follows...  "  + who);
+        }
+
+        public void OutputRisk()
+        {
+            Console.WriteLine("\n-----------------------------------------------------");
+            Console.WriteLine("\n                    Please note                      ");
+            Console.WriteLine("\n              You may be at extra risk               ");
+            Console.WriteLine("\n          if you are one of the following:           ");
+            Console.WriteLine("\n                                                     ");
+            Console.WriteLine("\n     Adults 23.0 or more are at an increased risk    ");
+            Console.WriteLine("\n     Adults 27.5 or more are at an higher risk       ");
+            Console.WriteLine("\n                                                     ");
+            Console.WriteLine("\n                     Children                        ");
+            Console.WriteLine("\n                     Pregnant                        ");
+            Console.WriteLine("\n                   Muscle Builder                    ");
+            Console.WriteLine("\n       Black, Asian & other minority ethnic groups   ");
+            Console.WriteLine("\n------------------------------------------------------\n");
         }
     }
 }
