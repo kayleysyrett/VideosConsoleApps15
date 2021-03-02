@@ -60,7 +60,7 @@ namespace ConsoleAppProject.App02
 
             OutputBmi();
             CalculateWho();
-            //OutputWho();
+            OutputWho();
             //OutputWarning();
         }
         private void Heading()
@@ -186,28 +186,33 @@ namespace ConsoleAppProject.App02
         {
             if (Index < 18.5)
             {
-                who = "underweight";
+                who = "You are Underweight";
             }
             else if (Index >= 18.5 && Index <= 24.9)
             {
-                who = "healthy";
+                who = "Congratulations you are Healthy!";
             }
             else if (Index >= 25.0 && Index <= 29.9)
             {
-                who = "overweight";
+                who = "You are Overweight";
             }
             else if (Index >= 30.0 && Index <= 34.9)
             {
-                who = "obese 1";
+                who = "You are in the Obese Category 1";
             }
             else if (Index >= 35.0 && Index <= 39.9)
             {
-                who = "obese 2";
+                who = "You are in the Obese Category 2";
             }
             else if (Index >= 40.0)
             {
-                who = "obese 3";
+                who = "You are in the Obese Category 3";
             }
+        }
+
+        public void OutputWho()
+        {
+            Console.WriteLine("Your current WHO (World Health Organisation) weight status is as follows...  "  + who);
         }
     }
 }
