@@ -5,12 +5,13 @@ using System.Text;
 namespace ConsoleAppProject.App02
 {
     /// <summary>
-    /// This app will prompt the user to enter their height entered in 
-    /// one unit where it will calculate and output their BMI and the
-    /// WHO weight status in another unit.
+    /// This app will prompt the user to enter their height and weight
+    /// in either imperial or metric units, then calculate and output the 
+    /// users BMI, their WHO weight status and display a risk warning 
+    /// message.
     /// </summary>
     /// <author>
-    /// Kayley Syrett version 0.1
+    /// Kayley Syrett version 0.3
     /// </author>
     public class BMIConverter
     {
@@ -84,6 +85,12 @@ namespace ConsoleAppProject.App02
         {
             Console.WriteLine($"Your current BMI is {Index:0.00}");
         }
+
+        /// <summary>
+        /// Output a short description of the application 
+        /// and the name of the author.
+        /// </summary>
+        /// 
         private void OutputHeading()
         {
             Console.WriteLine("\n-------------------------------");
@@ -92,7 +99,6 @@ namespace ConsoleAppProject.App02
             Console.WriteLine("\n       by Kayley Syrett        ");
             Console.WriteLine("\n-------------------------------\n");
         }
-
         private static string DisplayChoices(string prompt)
         {
             Console.WriteLine();
@@ -115,6 +121,12 @@ namespace ConsoleAppProject.App02
             string choice = Console.ReadLine();
             return choice;
         }
+
+        /// <summary>
+        /// Display a menu of measurement units and then prompt the 
+        /// user to select one and return it. 
+        /// </summary>
+        /// 
         private string SelectUnit()
         {
 
@@ -143,6 +155,9 @@ namespace ConsoleAppProject.App02
             }
         }
 
+        /// <summary>
+        /// Prompt the user to enter height in metric 
+        /// </summary>
         private double InputMetricHeight()
         {
             Console.Write("Please enter your height in Centimeters > ");
@@ -150,6 +165,9 @@ namespace ConsoleAppProject.App02
             return Convert.ToDouble(value);
         }
 
+        /// <summary>
+        /// Prompt the user to enter weight in metric 
+        /// </summary>
         private double InputMetricWeight()
         {
             Console.Write("Please enter your weight in Kilograms > ");
@@ -157,6 +175,9 @@ namespace ConsoleAppProject.App02
             return Convert.ToDouble(value);
         }
 
+        /// <summary>
+        /// Prompt the user to enter height in imperial 
+        /// </summary>
         private double InputImperialHeight()
         {
             Console.Write("Please enter your height in Inches > ");
@@ -164,6 +185,9 @@ namespace ConsoleAppProject.App02
             return Convert.ToDouble(value);
         }
 
+        /// <summary>
+        /// Prompt the user to enter weight in imperial 
+        /// </summary>
         private double InputImperialWeight()
         {
 

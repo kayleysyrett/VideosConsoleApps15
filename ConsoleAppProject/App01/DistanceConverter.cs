@@ -163,9 +163,7 @@ namespace ConsoleAppProject.App01
 
         /// <summary>
         /// Prompt the user to enter the distance 
-        /// 
         /// </summary>
-        /// 
         private double InputDistance(string prompt)
         {
             Console.Write(prompt);
