@@ -37,12 +37,12 @@ namespace ConsoleAppProject.App02
         public double Pounds { get; set; }
         public double Stone { get; set; }
         public double Bmi { get; set; }
+        public double Metric_Conversion { get; private set; }
 
         public void Run()
         {
                 Heading();
                 string unit = SelectUnit();
-
 
                 if (unit == "metric")
                 {
@@ -50,15 +50,12 @@ namespace ConsoleAppProject.App02
                     Metres = Centimetres / 100;
                     Kilograms = InputMetricWeight();
                     CalculateMetric();
-
-
                 }
                 else
                 {
                     Inches = InputImperialHeight();
                     Pounds = InputImperialWeight();
                     CalculateImperial();
-
                 }
 
                OutputBmi();
@@ -177,7 +174,7 @@ namespace ConsoleAppProject.App02
 
         public void CalculateImperial()
         {
-            //Index = (double)Pounds * Metric_Conversion / (Inches * Inches);
+            Index = (double)Pounds * Metric_Conversion / (Inches * Inches);
         }
 
         public void CalculateMetric()
