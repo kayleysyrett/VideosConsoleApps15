@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Text;
 
 namespace ConsoleAppProject.App02
 {
@@ -26,17 +27,58 @@ namespace ConsoleAppProject.App02
         public const string METRIC = "metric";
         public const string IMPERIAL = "imperial";
 
+        public double Index { get; set; }
+        public string who;
+
+        public double Centimetres;
+        public double Inches;
+        public double Kilograms { get; set; }
+        public double Metres { get; set; }
+        public double Pounds { get; set; }
+        public double Stone { get; set; }
+        public double Bmi { get; set; }
+
         public void Run()
         {
-            SelectUnit("Please enter your choice ");
+                Heading();
+                string unit = SelectUnit();
+
+
+                if (unit == "metric")
+                {
+                    Centimetres = InputMetricHeight();
+                    Metres = Centimetres / 100;
+                    Kilograms = InputMetricWeight();
+                    CalculateMetric();
+
+
+                }
+                else
+                {
+                    Inches = InputImperialHeight();
+                    Pounds = InputImperialWeight();
+                    CalculateImperial();
+
+                }
+
+               // OutputBmi();
+               // CalculateWho();
+                //OutputWho();
+                //OutputWarning();
         }
+        private void Heading()
+        {
+            Console.WriteLine("Welcome to the BMI Calculator");
+            Console.WriteLine("By Kayley Syrett");
+        }
+
         private string SelectUnit(string prompt)
         {
             string choice = DisplayChoices(prompt);
 
             string unit = ExecuteChoice(choice);
             Console.WriteLine($"\n You have chosen {unit}");
-            return unit;
+            return unit.ToLower();
         }
 
         public BMIConverter()
@@ -46,6 +88,7 @@ namespace ConsoleAppProject.App02
         private void OutputHeading()
         {
             Console.WriteLine("\n-------------------------------");
+            Console.WriteLine("\n        Welcome to the         ");
             Console.WriteLine("\n  Body Mass Index Calculator   ");
             Console.WriteLine("\n       by Kayley Syrett        ");
             Console.WriteLine("\n-------------------------------\n");
@@ -62,8 +105,28 @@ namespace ConsoleAppProject.App02
             string choice = Console.ReadLine();
             return choice;
         }
+        private string SelectUnit()
+        {
 
-       
+            Console.WriteLine("Please select metric or imperial units > ");
+            string choice = DisplayChoices();
+
+            string unit = ExecuteChoice(choice);
+            Console.WriteLine($" You have chosen {unit}");
+            return unit.ToLower();
+        }
+        private static string DisplayChoices()
+        {
+            Console.WriteLine();
+            Console.WriteLine($"1. {METRIC}");
+            Console.WriteLine($"2. {IMPERIAL}");
+
+            Console.WriteLine();
+            string choice = Console.ReadLine();
+
+            return choice;
+        }
+
         private string ExecuteChoice(string choice)
         {
             if (choice == "1")
@@ -81,21 +144,45 @@ namespace ConsoleAppProject.App02
             }
         }
 
-        private void CalculateBodyMassIndexImperial()
+        private double InputMetricHeight()
         {
-            Console.WriteLine("Please enter your height in feet : ");
-            Console.WriteLine("Please enter your height in inches : ");
-            double height = Convert.ToDouble(Console.ReadLine()); // ask derek if correct/ok (two commands on one line?)
+            Console.Write("Please enter your height in Centimeters > ");
+            string value = Console.ReadLine();
+            return Convert.ToDouble(value);
         }
 
-        private void CalculateBodyMassIndexMetric()
+        private double InputMetricWeight()
         {
-            Console.WriteLine("Please enter your height in cm : ");
-            double height = Convert.ToDouble(Console.ReadLine());
-
-            Console.WriteLine("Please enter your weight in kg : ");
-            double weight = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Please enter your weight in Kilograms > ");
+            string value = Console.ReadLine();
+            return Convert.ToDouble(value);
         }
+
+        private double InputImperialHeight()
+        {
+            Console.Write("Please enter your height in Inches > ");
+            string value = Console.ReadLine();
+            return Convert.ToDouble(value);
+        }
+
+        private double InputImperialWeight()
+        {
+
+            Console.Write("Please enter your weight in pounds > ");
+            string value = Console.ReadLine();
+            return Convert.ToDouble(value);
+        }
+
+        public void CalculateImperial()
+        {
+            //Index = (double)Pounds * Metric_Conversion / (Inches * Inches);
+        }
+
+        public void CalculateMetric()
+        {
+            Index = (Kilograms / (Metres * Metres));
+        }
+
         private void OutputBodyMassIndex()
         {
             Console.WriteLine("Your BMI status is : ");

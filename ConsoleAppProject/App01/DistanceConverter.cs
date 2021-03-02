@@ -20,6 +20,7 @@ namespace ConsoleAppProject.App01
         public const int FEET_IN_MILES = 5280;
 
         public const double METRES_IN_MILES = 1609.34;
+
         public const double FEET_IN_METRES = 3.28084;
 
         //public const double MILES_IN_METRES = 0.000621; 
@@ -38,7 +39,6 @@ namespace ConsoleAppProject.App01
         private double toDistance;
 
     // Unit variables 
-
         private string fromUnit;
         
         private string toUnit;
@@ -49,14 +49,11 @@ namespace ConsoleAppProject.App01
             toUnit = FEET;
         }
 
-
-
         /// <summary>
         /// This method will input the distance chosen by the
         /// user and calculate the output
         /// </summary>
-        /// 
-
+        ///
         public void ConvertDistance()
         {
             OutputHeading();
@@ -115,7 +112,6 @@ namespace ConsoleAppProject.App01
         /// user to select one and return it. 
         /// </summary>
         /// 
-
         private string SelectUnit(string prompt)
         {
             string choice = DisplayChoices(prompt);
@@ -123,9 +119,11 @@ namespace ConsoleAppProject.App01
             string unit = ExecuteChoice(choice);
             Console.WriteLine($"\n You have chosen {unit}");
             return unit;
-
         }
-
+        
+        /// <summary>
+        /// 
+        /// </summary>       
         private string ExecuteChoice(string choice)
         {
             if (choice == "1")
