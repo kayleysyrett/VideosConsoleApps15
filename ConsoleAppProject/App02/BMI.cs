@@ -61,7 +61,7 @@ namespace ConsoleAppProject.App02
 
                 }
 
-               // OutputBmi();
+               OutputBmi();
                // CalculateWho();
                 //OutputWho();
                 //OutputWarning();
@@ -83,9 +83,9 @@ namespace ConsoleAppProject.App02
             return unit.ToLower();
         }
 
-        public BMIConverter()
+        public void OutputBmi()
         {
-
+            Console.WriteLine($"Your current BMI is {Index:0.00}");
         }
         private void OutputHeading()
         {
