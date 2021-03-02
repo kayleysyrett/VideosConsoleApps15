@@ -41,27 +41,27 @@ namespace ConsoleAppProject.App02
 
         public void Run()
         {
-                Heading();
-                string unit = SelectUnit();
+            Heading();
+            string unit = SelectUnit();
 
-                if (unit == "metric")
-                {
-                    Centimetres = InputMetricHeight();
-                    Metres = Centimetres / 100;
-                    Kilograms = InputMetricWeight();
-                    CalculateMetric();
-                }
-                else
-                {
-                    Inches = InputImperialHeight();
-                    Pounds = InputImperialWeight();
-                    CalculateImperial();
-                }
+            if (unit == "metric")
+            {
+                Centimetres = InputMetricHeight();
+                Metres = Centimetres / 100;
+                Kilograms = InputMetricWeight();
+                CalculateMetric();
+            }
+            else
+            {
+                Inches = InputImperialHeight();
+                Pounds = InputImperialWeight();
+                CalculateImperial();
+            }
 
-               OutputBmi();
-               // CalculateWho();
-                //OutputWho();
-                //OutputWarning();
+            OutputBmi();
+            CalculateWho();
+            //OutputWho();
+            //OutputWarning();
         }
         private void Heading()
         {
@@ -104,6 +104,17 @@ namespace ConsoleAppProject.App02
             string choice = Console.ReadLine();
             return choice;
         }
+
+        private static string DisplayChoices()
+        {
+            Console.WriteLine();
+            Console.WriteLine($"1. {METRIC}");
+            Console.WriteLine($"2. {IMPERIAL}");
+
+            Console.WriteLine();
+            string choice = Console.ReadLine();
+            return choice;
+        }
         private string SelectUnit()
         {
 
@@ -113,17 +124,6 @@ namespace ConsoleAppProject.App02
             string unit = ExecuteChoice(choice);
             Console.WriteLine($" You have chosen {unit}");
             return unit.ToLower();
-        }
-        private static string DisplayChoices()
-        {
-            Console.WriteLine();
-            Console.WriteLine($"1. {METRIC}");
-            Console.WriteLine($"2. {IMPERIAL}");
-
-            Console.WriteLine();
-            string choice = Console.ReadLine();
-
-            return choice;
         }
 
         private string ExecuteChoice(string choice)
@@ -182,10 +182,32 @@ namespace ConsoleAppProject.App02
             Index = (Kilograms / (Metres * Metres));
         }
 
-        private void OutputBodyMassIndex()
+        public void CalculateWho()
         {
-            Console.WriteLine("Your BMI status is : ");
-            //if statement required 
+            if (Index < 18.5)
+            {
+                who = "underweight";
+            }
+            else if (Index >= 18.5 && Index <= 24.9)
+            {
+                who = "healthy";
+            }
+            else if (Index >= 25.0 && Index <= 29.9)
+            {
+                who = "overweight";
+            }
+            else if (Index >= 30.0 && Index <= 34.9)
+            {
+                who = "obese 1";
+            }
+            else if (Index >= 35.0 && Index <= 39.9)
+            {
+                who = "obese 2";
+            }
+            else if (Index >= 40.0)
+            {
+                who = "obese 3";
+            }
         }
     }
 }
