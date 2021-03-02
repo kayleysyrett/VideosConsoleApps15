@@ -117,6 +117,7 @@ namespace ConsoleAppProject.App02
             Console.WriteLine($"1. {METRIC}");
             Console.WriteLine($"2. {IMPERIAL}");
 
+
             Console.WriteLine();
             string choice = Console.ReadLine();
             return choice;
