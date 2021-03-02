@@ -68,8 +68,10 @@ namespace ConsoleAppProject.App02
         }
         private void Heading()
         {
-            Console.WriteLine("Welcome to the BMI Calculator");
-            Console.WriteLine("By Kayley Syrett");
+            Console.WriteLine("\n-------------------------------");
+            Console.WriteLine("\n        BMI Calculator         ");
+            Console.WriteLine("\n       by Kayley Syrett        ");
+            Console.WriteLine("\n-------------------------------\n");
         }
 
         private string SelectUnit(string prompt)
