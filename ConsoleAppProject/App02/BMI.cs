@@ -196,16 +196,25 @@ namespace ConsoleAppProject.App02
             return Convert.ToDouble(value);
         }
 
+        /// <summary>
+        /// Calculate imperial conversion 
+        /// </summary>
         public void CalculateImperial()
         {
             Index = (double)Pounds * Metric_Conversion / (Inches * Inches);
         }
 
+        /// <summary>
+        /// Calculate metric conversion 
+        /// </summary>
         public void CalculateMetric()
         {
             Index = (Kilograms / (Metres * Metres));
         }
 
+        /// <summary>
+        /// Calculate WHO weight status
+        /// </summary>
         public void CalculateWho()
         {
             Console.WriteLine("\n-----------------------------------------------------");
@@ -236,11 +245,17 @@ namespace ConsoleAppProject.App02
             }
         }
 
+        /// <summary>
+        /// Output users current WHO weight status
+        /// </summary>
         public void OutputWho()
         {
             Console.WriteLine("Your current WHO (World Health Organisation) weight status is as follows...  "  + who);
         }
 
+        /// <summary>
+        /// Output risk information 
+        /// </summary>
         public void OutputRisk()
         {
             Console.WriteLine("\n-----------------------------------------------------");
@@ -248,8 +263,8 @@ namespace ConsoleAppProject.App02
             Console.WriteLine("\n              You may be at extra risk               ");
             Console.WriteLine("\n          if you are one of the following:           ");
             Console.WriteLine("\n                                                     ");
-            Console.WriteLine("\n     Adults 23.0 or more are at an increased risk    ");
-            Console.WriteLine("\n     Adults 27.5 or more are at an higher risk       ");
+            Console.WriteLine("\n       Adult BMI 23.0 or more = increased risk       ");
+            Console.WriteLine("\n         Adult BMI 27.5 or more = higher risk        ");
             Console.WriteLine("\n                                                     ");
             Console.WriteLine("\n                     Children                        ");
             Console.WriteLine("\n                     Pregnant                        ");
