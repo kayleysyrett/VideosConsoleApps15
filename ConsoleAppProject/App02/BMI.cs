@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ConsoleAppProject.Helpers;
 
 namespace ConsoleAppProject.App02
 {
@@ -35,27 +36,35 @@ namespace ConsoleAppProject.App02
         public double Inches;
         public double Kilograms { get; set; }
         public double Metres { get; set; }
+        public double Feet { get; set; }
+
         public double Pounds { get; set; }
-        public double Stone { get; set; }
+        public double Stones { get; set; }
         public double Bmi { get; set; }
         public double Metric_Conversion { get; private set; }
 
+        /// <summary>
+        /// Prompt the user to select Imperial or Metric units.
+        /// Input the user's height and weight and then calculate
+        /// their BMI value. Output which weight the category
+        /// falls into.
+        /// </summary>
         public void Run()
         {
-            Heading();
+            ConsoleHelper.OutputHeading("BMI Converter");
             string unit = SelectUnit();
 
-            if (unit == "metric")
+            if (unit == METRIC)
             {
-                Centimetres = InputMetricHeight();
+                InputMetricHeight();
                 Metres = Centimetres / 100;
-                Kilograms = InputMetricWeight();
+                InputMetricWeight();
                 CalculateMetric();
             }
             else
             {
-                Inches = InputImperialHeight();
-                Pounds = InputImperialWeight();
+                InputImperialHeight();
+                InputImperialWeight();
                 CalculateImperial();
             }
 
@@ -63,13 +72,6 @@ namespace ConsoleAppProject.App02
             CalculateWho();
             OutputWho();
             OutputRisk();
-        }
-        private void Heading()
-        {
-            Console.WriteLine("\n-------------------------------");
-            Console.WriteLine("\n        BMI Calculator         ");
-            Console.WriteLine("\n       by Kayley Syrett        ");
-            Console.WriteLine("\n-------------------------------\n");
         }
 
         private string SelectUnit(string prompt)
@@ -91,14 +93,6 @@ namespace ConsoleAppProject.App02
         /// and the name of the author.
         /// </summary>
         /// 
-        private void OutputHeading()
-        {
-            Console.WriteLine("\n-------------------------------");
-            Console.WriteLine("\n        Welcome to the         ");
-            Console.WriteLine("\n  Body Mass Index Calculator   ");
-            Console.WriteLine("\n       by Kayley Syrett        ");
-            Console.WriteLine("\n-------------------------------\n");
-        }
         private static string DisplayChoices(string prompt)
         {
             Console.WriteLine();
@@ -111,18 +105,6 @@ namespace ConsoleAppProject.App02
             return choice;
         }
 
-        private static string DisplayChoices()
-        {
-            Console.WriteLine();
-            Console.WriteLine($"1. {METRIC}");
-            Console.WriteLine($"2. {IMPERIAL}");
-
-
-            Console.WriteLine();
-            string choice = Console.ReadLine();
-            return choice;
-        }
-
         /// <summary>
         /// Display a menu of measurement units and then prompt the 
         /// user to select one and return it. 
@@ -131,8 +113,8 @@ namespace ConsoleAppProject.App02
         private string SelectUnit()
         {
 
-            Console.WriteLine("Please select metric or imperial units > ");
-            string choice = DisplayChoices();
+            Console.WriteLine("                                                      ");
+            string choice = DisplayChoices("Please select metric or imperial units > ");
 
             string unit = ExecuteChoice(choice);
             Console.WriteLine($" You have chosen {unit}");
@@ -159,42 +141,35 @@ namespace ConsoleAppProject.App02
         /// <summary>
         /// Prompt the user to enter height in metric 
         /// </summary>
-        private double InputMetricHeight()
+        private void InputMetricHeight()
         {
-            Console.Write("Please enter your height in Centimeters > ");
-            string value = Console.ReadLine();
-            return Convert.ToDouble(value);
+            Centimetres = ConsoleHelper.InputNumber("Please enter your height in Centimeters > ");
         }
 
         /// <summary>
         /// Prompt the user to enter weight in metric 
         /// </summary>
-        private double InputMetricWeight()
+        private void InputMetricWeight()
         {
-            Console.Write("Please enter your weight in Kilograms > ");
-            string value = Console.ReadLine();
-            return Convert.ToDouble(value);
+            Kilograms = ConsoleHelper.InputNumber("Please enter your weight in Kilograms > ");
         }
 
         /// <summary>
         /// Prompt the user to enter height in imperial 
         /// </summary>
-        private double InputImperialHeight()
+        private void InputImperialHeight()
         {
-            Console.Write("Please enter your height in Inches > ");
-            string value = Console.ReadLine();
-            return Convert.ToDouble(value);
+            Feet = ConsoleHelper.InputNumber("Please enter your height in Feet > ");
+            Inches = ConsoleHelper.InputNumber("Please enter your height in Inches > ");
         }
 
         /// <summary>
         /// Prompt the user to enter weight in imperial 
         /// </summary>
-        private double InputImperialWeight()
+        private void InputImperialWeight()
         {
-
-            Console.Write("Please enter your weight in pounds > ");
-            string value = Console.ReadLine();
-            return Convert.ToDouble(value);
+            Stones = ConsoleHelper.InputNumber("Please enter your weight in Stones > ");
+            Pounds = ConsoleHelper.InputNumber("Please enter your weight in pounds > ");
         }
 
         /// <summary>
@@ -202,7 +177,9 @@ namespace ConsoleAppProject.App02
         /// </summary>
         public void CalculateImperial()
         {
-            Index = (double)Pounds * Metric_Conversion / (Inches * Inches);
+            Inches = Inches + Feet * InchesInFeet;
+            Pounds = Pounds + Stones * PoundsInStones;
+            Index = (double)Pounds * 703 / (Inches * Inches); 
         }
 
         /// <summary>
@@ -210,6 +187,7 @@ namespace ConsoleAppProject.App02
         /// </summary>
         public void CalculateMetric()
         {
+            Metres = Centimetres / 100;
             Index = (Kilograms / (Metres * Metres));
         }
 
