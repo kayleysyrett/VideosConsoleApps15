@@ -30,7 +30,8 @@ namespace WebApp.Controllers
             return View();
         }
 
-        public IActionResult CalculateWho()
+        [HttpGet]
+        public IActionResult OutputWho()
         {
             return View();
         }

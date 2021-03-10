@@ -1,4 +1,8 @@
 ﻿using System.ComponentModel;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using ConsoleAppProject.Helpers;
 
 namespace ConsoleAppProject.App03
 {
@@ -22,4 +26,16 @@ namespace ConsoleAppProject.App03
         [Description("First Class")]
         A
     }
+
+    public class StudentGrades
+    {
+
+    }
+
+    public void Run()
+    {
+
+    }
+
+
 }
