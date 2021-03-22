@@ -10,7 +10,7 @@ namespace ConsoleAppProject.App01
     /// Output the equivalent distance in another unit (toUnit).
     /// </summary>
     /// <author>
-    /// Kayley Syrett version 0.2
+    /// Kayley Syrett version 0.3
     /// </author>
     /// 
 
@@ -37,12 +37,12 @@ namespace ConsoleAppProject.App01
 
         public double FromDistance { get; set; }
         
-        private double ToDistance { get; set; }
+        public double ToDistance { get; set; }
 
         // Unit variables 
-        private string FromUnit { get; set; }
+        public string FromUnit { get; set; }
 
-        private string ToUnit { get; set; }
+        public string ToUnit { get; set; }
 
         public DistanceConverter()
         {
@@ -57,14 +57,14 @@ namespace ConsoleAppProject.App01
         ///
         public void ConvertDistance()
         {
-            OutputHeading();
+            ConsoleHelper.OutputHeading("Distance Converter");
 
-            FromUnit = SelectUnit(" Please select from the distance unit > ");
+            FromUnit = SelectUnit(" Please select from distance unit > ");
             ToUnit = SelectUnit(" Please select the to distance unit > ");
 
             Console.WriteLine($" Converting {FromUnit} to {ToUnit}");
 
-            FromDistance = InputDistance($" Please enter the number of {FromUnit} > ");
+            FromDistance = ConsoleHelper.InputNumber($" Please enter the number of {FromUnit} > ");
 
             CalculateDistance();
 
