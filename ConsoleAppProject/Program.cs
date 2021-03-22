@@ -43,7 +43,7 @@ namespace ConsoleAppProject
             else if (choice == "3")
             {
                 StudentGrades calculator = new StudentGrades();
-                calculator.Run();
+                //calculator.Run();
             }
             else
             {
