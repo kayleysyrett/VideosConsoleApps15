@@ -1,7 +1,27 @@
-﻿
+﻿@model double
+@using ConsoleAppProject.App02
 @{
     ViewData["Title"] = "CalculateWho";
 }
 
-<h1>CalculateWho</h1>
+@{ 
+    BMICalculator bmi = new BMICalculator();
+    bmi.Index = Model;
+}
+
+<header class="jumbotron">
+    <h1>BMI Health Message</h1>
+    <h2>By Kayley Syrett</h2>
+</header>
+<section>
+    <h2>Your BMI Index</h2>
+    <p class="text-lead">
+       @bmi.
+    </p>
+    <h2>Important Information</h2>
+    <p class="text-lead">
+        @bmi.
+    </p>
+</section>
+
 

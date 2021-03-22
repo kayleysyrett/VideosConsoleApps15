@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebApp.Models;
+using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
+using ConsoleAppProject.App03;
 
 namespace WebApp.Controllers
 {
@@ -25,15 +27,30 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult BMICalculator(BMICalculator bmi)
+       public IActionResult BMICalculator(BMICalculator bmi)
         {
-            return View();
+            if (bmi.Centimetres > 140)
+            {
+                bmi.CalculateMetric();
+            }
+            else if (bmi.Feet > 4 && bmi.Stones > 6)
+            {
+                bmi.CalculateImperial();
+            }
+            else
+            {
+                ViewBag.Error = "you have entered values too small for any adult!";
+                return View();
+            }
+
+            double bmiIndex = bmi.Index;
+            return RedirectToAction("CalculateWho", new { bmiIndex });
         }
 
         [HttpGet]
-        public IActionResult OutputWho()
+        public IActionResult CalculateWho(double bmiIndex)
         {
-            return View();
+            return View(bmiIndex);
         }
 
         [HttpGet]

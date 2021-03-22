@@ -18,7 +18,7 @@ namespace ConsoleAppProject.App02
     {
         public const double Underweight = 18.5;
         public const double Normal = 24.9;
-        public const double Overwight = 29.9;
+        public const double Overweight = 29.9;
         public const double ObeseLevel1 = 34.9;
         public const double ObeseLevel2 = 39.9;
         public const double ObeseLevel3 = 40.0;
@@ -32,8 +32,8 @@ namespace ConsoleAppProject.App02
         public double Index { get; set; }
         public string who;
 
-        public double Centimetres;
-        public double Inches;
+        public double Centimetres { get; set; }
+        public double Inches { get; set; }
         public double Kilograms { get; set; }
         public double Metres { get; set; }
         public double Feet { get; set; }
@@ -42,6 +42,7 @@ namespace ConsoleAppProject.App02
         public double Stones { get; set; }
         public double Bmi { get; set; }
         public double Metric_Conversion { get; private set; }
+
 
         /// <summary>
         /// Prompt the user to select Imperial or Metric units.
@@ -69,7 +70,7 @@ namespace ConsoleAppProject.App02
             }
 
             OutputBmi();
-            CalculateWho();
+            GetHealthMessage();
             OutputWho();
             OutputRisk();
         }
@@ -194,34 +195,42 @@ namespace ConsoleAppProject.App02
         /// <summary>
         /// Calculate WHO weight status
         /// </summary>
-        public void CalculateWho()
+        public string GetHealthMessage()
         {
-            Console.WriteLine("\n-----------------------------------------------------");
-            Console.WriteLine("\n                                                     ");
-            if (Index < 18.5)
+            StringBuilder message = new StringBuilder("\n");
+
+            if (Index < Underweight)
             {
-                who = "You are Underweight";
+                message.Append($" Your BMI is {Index:0.00}, " +
+                    $"You are Underweight ");
             }
-            else if (Index >= 18.5 && Index <= 24.9)
+            else if (Index <= Normal)
             {
-                who = "Congratulations you are Healthy!";
+                message.Append($" Your BMI is {Index:0.00}, " +
+                     $"Congratulations you are Healthy! ");
             }
-            else if (Index >= 25.0 && Index <= 29.9)
+            else if (Index <= Overweight)
             {
-                who = "You are Overweight";
+                message.Append($" Your BMI is {Index:0.00}, " +
+                    $"You are Overweight ");
             }
-            else if (Index >= 30.0 && Index <= 34.9)
+            else if (Index <= ObeseLevel1)
             {
-                who = "You are in the Obese Category 1";
+                message.Append($" Your BMI is {Index:0.00}, " +
+                    $"You are in the Obese Category 1 ");
             }
-            else if (Index >= 35.0 && Index <= 39.9)
+            else if (Index <= ObeseLevel2)
             {
-                who = "You are in the Obese Category 2";
+                message.Append($" Your BMI is {Index:0.00}, " +
+                    $"You are in the Obese Category 2 ");
             }
-            else if (Index >= 40.0)
+            else if (Index <= ObeseLevel3)
             {
-                who = "You are in the Obese Category 3";
+                message.Append($" Your BMI is {Index:0.00}, " +
+                    $"You are in the Obese Category 3 ");
             }
+
+            return message.ToString();
         }
 
         /// <summary>
