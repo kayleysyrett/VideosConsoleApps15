@@ -40,14 +40,14 @@ namespace ConsoleAppProject.App01
         public double ToDistance { get; set; }
 
         // Unit variables 
-        public DistanceUnits FromUnit { get; set; }
+        public string FromUnit { get; set; }
 
-        public DistanceUnits ToUnit { get; set; }
+        public string ToUnit { get; set; }
 
         public DistanceConverter()
         {
-            FromUnit = DistanceUnits.Miles;
-            ToUnit = DistanceUnits.Feet;
+            FromUnit = MILES;
+            ToUnit = FEET;
         }
 
         /// <summary>
