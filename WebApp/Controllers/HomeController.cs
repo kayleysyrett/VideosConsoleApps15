@@ -15,9 +15,13 @@ namespace WebApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult DistanceConverter()
+        public IActionResult DistanceConverter(DistanceConverter converter)
         {
-            return View();
+            if(converter.FromDistance > 0)
+            {
+                converter.CalculateDistance();
+            }
+            return View(converter);
         }
 
         [HttpGet]
