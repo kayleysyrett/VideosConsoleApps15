@@ -14,7 +14,7 @@ namespace ConsoleAppProject.App02
     /// <author>
     /// Kayley Syrett version 0.3
     /// </author>
-    public class BMIConverter
+    public class BMICalculator
     {
         public const double Underweight = 18.5;
         public const double Normal = 24.9;

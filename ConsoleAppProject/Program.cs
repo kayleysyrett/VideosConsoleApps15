@@ -37,7 +37,7 @@ namespace ConsoleAppProject
             }
             else if (choice == "2")
             {
-                BMIConverter calculator = new BMIConverter();
+                BMICalculator calculator = new BMICalculator();
                 calculator.Run();
             }
             else if (choice == "3")

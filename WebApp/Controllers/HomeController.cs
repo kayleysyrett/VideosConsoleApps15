@@ -25,7 +25,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult BMICalculator(BMIConverter bmi)
+        public IActionResult BMICalculator(BMICalculator bmi)
         {
             return View();
         }
