@@ -37,7 +37,7 @@ namespace WebApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult StudentMarks()
+        public IActionResult StudentGrades()
         {
             return View();
         }
