@@ -71,7 +71,7 @@ namespace ConsoleAppProject.App01
             OutputDistance();
         }
 
-        private void CalculateDistance()
+        public void CalculateDistance()
         {
             //convert distance from miles to feet 
             //

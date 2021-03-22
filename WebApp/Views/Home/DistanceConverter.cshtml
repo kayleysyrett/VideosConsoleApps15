@@ -1,8 +1,28 @@
 ﻿@model ConsoleAppProject.App01.DistanceConverter
+@using ConsoleAppProject.App01 
 @{
     ViewData["Title"] = "KS DistanceConverter";
 }
-<header>
+<header class="text-center jumbotron justify-content-center">
+
     <h1>Distance Converter</h1>
     <h2>By Kayley Syrett</h2>
+    <p>
+        This app will convert a distance entered in one unit into 
+        the equivalent distance measured in another unit. 
+    </p>
 </header>
+
+<form method="post">
+
+    <h2>Convert from:</h2>
+
+    <p>
+        <label>From Unit: </label>
+        <select asp-for="@Model.FromUnit">
+            <option>@DistanceConverter.MILES</option>
+            <option>@DistanceConverter.METRES</option>
+            <option>@DistanceConverter.FEET</option>
+        </select>
+    </p>
+</form>
