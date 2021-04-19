@@ -91,8 +91,21 @@ namespace ConsoleAppProject.App03
 
         private void OutputGradeProfile()
         {
-            throw new NotImplementedException();
+            Grades grade = Grade.X;
+            Console.WriteLine();
+
+            foreach(int count in GradeProfile)
+            {
+                int percentage = count * 100 / Marks.Length;
+                Console.WriteLine($"Grade {grade} {percentage}% Count {count}");
+                grade++;
+            }
+            Console.WriteLine();
         }
+    }
+
+    internal class Grade
+    {
     }
 }
 
