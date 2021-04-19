@@ -24,6 +24,7 @@ namespace ConsoleAppProject.App03
         public double[] Mean { get; set; }
         public int[] Minimum { get; set; }
         public int[] Maximum { get; set; }
+        public object Grade { get; private set; }
 
         //Attributes
 
@@ -105,24 +106,24 @@ namespace ConsoleAppProject.App03
         }
     }
 
-    private void OutputMean()
+    private void OutputMean(object Mean)
     {
-        Console.Helper.OutputTitle("The Mean average mark is...>");
+        ConsoleHelper.OutputTitle("The Mean average mark is...>");
         CalculateStats();
         Console.WriteLine($"{Mean}");
     }
 
-    private void OutputMax()
+    private void OutputMax(object Maximum)
     {
-        Console.Helper.OutputTitle("The highest mark is...>");
+        ConsoleHelper.OutputTitle("The highest mark is...>");
         CalculateStats();
         Console.WriteLine($"{Maximum}");
         Console.WriteLine();
     }
 
-    private void OutputMin()
+    private void OutputMin(object Minimum)
     {
-        Console.Helper.OutputTitle("The lowest mark is...>");
+        ConsoleHelper.OutputTitle("The lowest mark is...>");
         CalculateStats();
         Console.WriteLine($"{Minimum}");
         Console.WriteLine();

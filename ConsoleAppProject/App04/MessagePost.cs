@@ -21,15 +21,18 @@ namespace ConsoleAppProject.App04
         /// <summary>
         /// Constructor for objects of class MessagePost.
         /// </summary>
-        /// <param name="author">
-        /// The username of the author of this post.
-        /// </param>
-        /// <param name="text">
-        /// The text of this post.
-        /// </param>
-        public MessagePost(String author, String text): base(author)
+        public MessagePost(String author, String text) : base(author)
         {
             Message = text;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void Display()
+        {
+            Console.WriteLine($"       Message: {Message}");
+
+            base.Display();
         }
     }
 }

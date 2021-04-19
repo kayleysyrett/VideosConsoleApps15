@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ConsoleAppProject.App04
 {
@@ -18,14 +19,21 @@ namespace ConsoleAppProject.App04
     ///</author> 
     public class NewsFeed
     {
+        public const string AUTHOR = "Kayley";
         private readonly List<Post> posts;
 
         ///<summary>
         /// Construct an empty news feed.
         ///</summary>
-        public NewsFeed()
+        public NewsFeed(PhotoPost photoPost)
         {
             posts = new List<Post>();
+           
+            MessagePost post = new MessagePost(AUTHOR, "I love Visual Studio");
+            AddMessagePost(post);
+
+            PhotoPost photo = new PhotoPost(AUTHOR, "Photo1.jpg", "Visual Studio");
+            AddPhotoPost(photoPost);
         }
 
 
@@ -58,7 +66,7 @@ namespace ConsoleAppProject.App04
             // display all text posts
             foreach (Post post in posts)
             {
-                posts.Display();
+                post.Display();
                 Console.WriteLine();   // empty line between posts
             }
         }
