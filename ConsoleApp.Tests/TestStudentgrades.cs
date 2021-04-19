@@ -11,9 +11,28 @@ namespace ConsoleApp.Tests
         [TestMethod]
         public void TestConvert0ToGradeF()
         {
-            // Arrange 
+            // Arrange
+            
+            Grades expectedGrade = Grades.F
+
+            //Act
 
             Grades actualGrade = converter.ConvertToGrade(0);
+
+            //Assert
+
+            Assert.AreEqual(expectedGrade, actualgrade);
+        }
+        [TestMethod]
+        public void TestConvert39ToGradeA()
+        {
+            // Arrange
+
+            Grades expectedGrade = Grades.A
+
+            //Act
+
+            Grades actualGrade = converter.ConvertToGrade(39);
 
             //Assert
 
