@@ -11,9 +11,17 @@ namespace ConsoleApp.Tests
         public void TestMilesToFeet()
         {
             DistanceConverter converter = new DistanceConverter()
-            {
-                FromUnit = 
-            };
+            
+            converter.FromUnit = DistanceConverter.MILES;
+            converter.ToUnit = DistanceConverter.FEET;
+
+            converter.FromDistance = 1.0;
+            converter.ConvertDistance();
+
+            double expectedDistance = 5280;
+
+            Assert.AreEqual(expectedDistance, converter.ToDistance);
+                      
         }
     }
 }
