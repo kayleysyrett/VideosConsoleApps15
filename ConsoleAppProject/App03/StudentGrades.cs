@@ -59,10 +59,37 @@ namespace ConsoleAppProject.App03
 
         public void CalculateStats()
         {
-            throw new NotImplementedException();
+            Minimum = Marks[0];
+            Maximum = Marks[0];
+
+            double total = 0;
+
+            foreach(int mark in Marks)
+            {
+                if (mark > Maximum) Maximum = mark;
+                if (mark < Minimum) Minimum = mark;
+                total = total + mark;
+            }
+
+            Mean = total / Marks.Length;
         }
 
         public void CalculateGradeProfile()
+        {
+            for(int i = 0; i < GradeProfile.Length; i++)
+            {
+                GradeProfile[i] = 0;
+            }
+            foreach(int mark in Marks)
+            {
+                Grades grade = ConvertToGrade(mark);
+                GradeProfile[(int)grade]++;
+            }
+
+            OutputGradeProfile();
+        }
+
+        private void OutputGradeProfile()
         {
             throw new NotImplementedException();
         }
