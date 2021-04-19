@@ -74,6 +74,7 @@ namespace ConsoleAppProject.App03
             Mean = total / Marks.Length;
         }
 
+
         public void CalculateGradeProfile()
         {
             for(int i = 0; i < GradeProfile.Length; i++)
@@ -104,8 +105,28 @@ namespace ConsoleAppProject.App03
         }
     }
 
-    internal class Grade
+    private void OutputMean()
     {
+        Console.Helper.OutputTitle("The Mean average mark is...>");
+        CalculateStats();
+        Console.WriteLine($"{Mean}");
     }
+
+    private void OutputMax()
+    {
+        Console.Helper.OutputTitle("The highest mark is...>");
+        CalculateStats();
+        Console.WriteLine($"{Maximum}");
+        Console.WriteLine();
+    }
+
+    private void OutputMin()
+    {
+        Console.Helper.OutputTitle("The lowest mark is...>");
+        CalculateStats();
+        Console.WriteLine($"{Minimum}");
+        Console.WriteLine();
+    }
+
 }
 
