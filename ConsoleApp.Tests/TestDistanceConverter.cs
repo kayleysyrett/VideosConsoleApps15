@@ -11,7 +11,7 @@ namespace ConsoleApp.Tests
         public void TestMilesToFeet()
         {
             //Arrange
-            DistanceConverter converter = new DistanceConverter()
+            DistanceConverter converter = new DistanceConverter();
             
             converter.FromUnit = DistanceConverter.MILES;
             converter.ToUnit = DistanceConverter.FEET;
@@ -31,7 +31,7 @@ namespace ConsoleApp.Tests
         public void TestFeetToMiles()
         {
             //Arrange
-            DistanceConverter converter = new DistanceConverter()
+            DistanceConverter converter = new DistanceConverter();
 
 
             converter.FromUnit = DistanceConverter.FEET;

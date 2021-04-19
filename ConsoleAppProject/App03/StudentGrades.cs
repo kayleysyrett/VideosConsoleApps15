@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleAppProject;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using ConsoleAppProject.Helpers;
@@ -30,43 +31,24 @@ namespace ConsoleAppProject.App03
             GradeProfile = new int[(int)Grades.A + 1];
             Marks = new int[Students.Length];
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Grades ConvertToGrade(int mark)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CalculateStats()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CalculateGradeProfile()
+        {
+            throw new NotImplementedException();
+        }
     }
-
-    /// <summary>
-    /// Input a mark between 0-100 for each student 
-    /// and store it in the Marks array
-    /// </summary>
-    //public void InputMarks()
-    //{
-       // throw new NotImplementedException();
-    //}
-
-    /// <summary>
-    /// List all the students and display their
-    /// name and current mark
-    /// </summary>
-    //public void OuputMarks()
-    //{
-       // throw new NotImplementedException();
-    //}
-
-    /// <summary>
-    /// Convert a student mark to a grade
-    /// from F (Fail) to A (First Class)
-    /// </summary>
-   // public Grade ConvertToGrade(int mark)
-    //{
-       // throw new NotImplementedException();
-    //}
-
-    /// <summary>
-    /// Calculate and display the minimum, maximum
-    /// and mean mark for all the students. 
-    /// </summary>
-    //public void CalculateStats()
-    //{
-       // throw new NotImplementedException();
-    //}
-
 }
 
